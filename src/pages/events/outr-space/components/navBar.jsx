@@ -15,7 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import logo from "/src/assets/LogoDesignITUS.png";
+import logo from "/src/assets/logos/LogoDesignITUS.svg";
 import tabItemStyle from "/src/assets/components/tabItemStyle";
 import { navBarStyle } from "/src/assets/components/glassmorphismStyle";
 import { primaryColor, whiteColor } from "/src/assets/globalStyle";
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center"
     },
     items: {
-        ...tabItemStyle.current,
+        ...tabItemStyle.default,
         "&:hover": {
             color: "#7B96E7",
         },
@@ -70,7 +70,6 @@ const useStyles = makeStyles(theme => ({
             fontSize: "13px",
             background: "none",
             color: primaryColor,
-            padding: 0, 
             marginLeft: 0
         },
     }, 
