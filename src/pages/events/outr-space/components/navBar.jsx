@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center"
     },
     items: {
-        ...tabItemStyle.current,
+        ...tabItemStyle.default,
         "&:hover": {
             color: "#7B96E7",
         },
