@@ -12,8 +12,11 @@ const buttonStyle = theme => ({
         backgroundColor: primaryColor,
         color: whiteColor,
         borderRadius: "50px",
+        border: "2px solid" + primaryColor,
+        transition: "box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
         "&:hover": {
             ...cardStyle,
+            borderRadius: "50px",
             boxShadow: "none",
             color: primaryColor + "!important",
         },
