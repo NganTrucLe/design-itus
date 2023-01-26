@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import PropTypes from "prop-types";
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,7 +17,9 @@ function RegularButton(props) {
     } = props;
     return (
         <div>
-            <Button href={props.href} endIcon={props.endIcon} className={classes.button}>{children}</Button>
+            <Link to={props.href}>
+                <Button endIcon={props.endIcon} className={classes.button}>{children}</Button>
+            </Link>
         </div>
     );
 };
