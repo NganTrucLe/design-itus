@@ -28,10 +28,10 @@ body,html {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   place-items: start;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px; */
+  /* min-height: 100vh; */
 }
 
 h1 {
