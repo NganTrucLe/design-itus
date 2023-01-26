@@ -41,6 +41,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("sm")]: {
             padding: "8px 16px",
         },
+        [theme.breakpoints.down("md")]: {
+            padding: "8px 40px",
+        },
     },
     logo: {
         height: "40px",
