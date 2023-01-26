@@ -16,10 +16,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import logo from "/src/assets/LogoDesignITUS.png";
+import logo from "/src/assets/logos/LogoDesignITUS.svg";
 import tabItemStyle from "../assets/components/tabItemStyle";
 import { navBarStyle } from "../assets/components/glassmorphismStyle";
 import { primaryColor, whiteColor } from "../assets/globalStyle";
+import { navItems } from "./routeData";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -125,26 +126,6 @@ export default function NavBar(props) {
         setAnchorEl(null);
     };
 
-    const navItems = [
-        {
-            text: "Trang chủ",
-            link: "/",
-        },
-        {
-            text: "Giới thiệu",
-            link: "/about-us",
-        },
-        {
-            text: "Sự kiện",
-            link: "/events",
-            child: [
-                {
-                    text: "Outr Space 7",
-                    link: "/outr-space-7"
-                }
-            ]
-        }
-    ]
     return (
         <div className={classes.root}>
             <div className={classes.navBarContainer}>
@@ -170,7 +151,7 @@ export default function NavBar(props) {
                                                 open={openMenu}
                                                 onClose={handleClose}
                                                 TransitionComponent={Fade}
-                                                style={{ zIndex: 10000 }}
+                                                style={{ zIndex: 10000, top: "2em" }}
                                             >
                                                 {item.child.map((child) => (
                                                     <Link to={`${item.link}${child.link}`}>
