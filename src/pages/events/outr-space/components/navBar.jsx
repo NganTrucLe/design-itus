@@ -16,10 +16,12 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import logo from "/src/assets/LogoDesignITUS.png";
+import tabItemStyle from "/src/assets/components/tabItemStyle";
+import { navBarStyle } from "/src/assets/components/glassmorphismStyle";
+import { primaryColor, whiteColor } from "/src/assets/globalStyle";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        fontFamily: "Be Vietnam Pro",
         position: 'fixed',
         padding: 0,
         margin: 0,
@@ -34,14 +36,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     navBarContainer: {
-        padding: "16px 120px",
-        background: "rgba(255, 255, 255, 0.2)",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexDirection: "row",
-        borderBottom: "2px solid white",
-        backdropFilter: "blur(5px)",
+        ...navBarStyle,
         [theme.breakpoints.down("sm")]: {
             padding: "8px 16px",
         },
@@ -57,13 +52,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center"
     },
     items: {
-        display: "block",
-        color: "#1A1A1A",
-        textDecoration: "none",
-        marginLeft: "60px",
-        fontSize: "16px",
-        cursor: "pointer",
-        fontWeight: 600,
+        ...tabItemStyle.current,
         "&:hover": {
             color: "#7B96E7",
         },
@@ -73,23 +62,11 @@ const useStyles = makeStyles(theme => ({
         },
     },
     itemsCurrent: {
-        display: "block",
-        textDecoration: "none",
-        marginLeft: "60px",
-        fontSize: "16px",
-        cursor: "pointer",
-        color: "#ECECEC",
-        background: "#7B96E7",
-        padding: "8px 12px",
-        borderRadius: "50px",
-        fontWeight: 600,
-        "&:hover": {
-            color: "#ECECEC",
-        },
+        ...tabItemStyle.current,
         [theme.breakpoints.down("sm")]: {
             fontSize: "13px",
             background: "none",
-            color: "#7B96E7",
+            color: primaryColor,
             padding: 0, 
             marginLeft: 0
         },
@@ -114,7 +91,7 @@ const useStyles = makeStyles(theme => ({
     },
     linkDrawer: {
         textDecoration: "none",
-        color: 'white',
+        color: whiteColor,
         display: 'flex'
     }
 }));
