@@ -158,12 +158,9 @@ export default function NavBar(props) {
                         {navItems.map((item) => (
                             <div>
                                 {item.link === props.current ?
-                                    <Link to={item.link} className={classes.itemsCurrent}>
-                                        {item.text}
-                                    </Link>
-                                    : (item.child ?
+                                    (item.child ?
                                         <>
-                                            <Link className={classes.items} onClick={handleClick}>
+                                            <Link className={classes.itemsCurrent} onClick={handleClick}>
                                                 {item.text}
                                             </Link>
                                             <Menu
@@ -183,10 +180,14 @@ export default function NavBar(props) {
                                             </Menu>
                                         </>
                                         :
-                                        <Link to={item.link} className={classes.items}>
+                                        <Link to={item.link} className={classes.itemsCurrent}>
                                             {item.text}
                                         </Link>
                                     )
+                                    :
+                                    <Link to={item.link} className={classes.items}>
+                                        {item.text}
+                                    </Link>
                                 }
                             </div>
                         ))}
