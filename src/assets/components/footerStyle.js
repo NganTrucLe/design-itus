@@ -1,16 +1,16 @@
-import { defaultFont, neutralColors, primaryColors } from "../globalStyle"; 
+import { defaultFont, neutralColors, primaryColors, section } from "../globalStyle";
 
 const displayFlex = {
-    display: "flex", 
+    display: "flex",
 }
 
 const column = {
-    ...displayFlex, 
+    ...displayFlex,
     flexDirection: "column"
 }
 
 const rowGap40 = {
-    ...displayFlex, 
+    ...displayFlex,
     gap: "40px"
 }
 
@@ -20,99 +20,102 @@ const fillContainer = {
 
 const footerStyle = theme => ({
     root: {
-        ...defaultFont, 
-        ...column, 
-        gap: "36px", 
-        background: primaryColors[3], 
-        color: neutralColors[5], 
+        ...defaultFont,
+        ...column,
+        ...section,
+        gap: "36px",
+        background: primaryColors[3],
+        color: neutralColors[5],
         width: "100%",
-        padding: "36px 120px", 
+        paddingTop: "36px",
+        paddingBottom: "36px",
         [theme.breakpoints.down("sm")]: {
-            fontSize: "13px", 
-            gap: "12px", 
-            padding: "20px 16px"
+            fontSize: "13px",
+            gap: "12px",
+            paddingTop: "20px",
+            paddingBottom: "20px",
         },
-    }, 
+    },
     divider: {
-        height: 0, 
-        border: "1px solid " + neutralColors[5], 
-    }, 
+        height: 0,
+        border: "1px solid " + neutralColors[5],
+    },
     displayFlex: {
-        ...displayFlex, 
-    }, 
+        ...displayFlex,
+    },
     container: {
-        ...displayFlex, 
-        justifyContent: "space-between", 
+        ...displayFlex,
+        justifyContent: "space-between",
         [theme.breakpoints.down("sm")]: {
-            ...fillContainer    
+            ...fillContainer
         },
-    }, 
+    },
     socials: {
         marginLeft: "20px"
-    }, 
+    },
     logo: {
-        height: "80px", 
+        height: "80px",
         [theme.breakpoints.down("sm")]: {
             height: "32px"
         },
-    }, 
+    },
     title: {
-        fontWeight: 600, 
+        fontWeight: 600,
         color: neutralColors[9]
-    }, 
+    },
     columnGap4: {
-        ...column, 
-        gap: "4px", 
+        ...column,
+        gap: "4px",
         [theme.breakpoints.down("sm")]: {
             gap: 0
         },
-    }, 
+    },
     rowGap8: {
-        ...displayFlex, 
+        ...displayFlex,
         gap: "8px"
-    }, 
+    },
     columnGap8: {
-        ...column, 
-        gap: "8px", 
-    }, 
+        ...column,
+        gap: "8px",
+    },
     columnGap18: {
-        ...column, 
-        gap: "18px", 
+        ...column,
+        gap: "18px",
         [theme.breakpoints.down("sm")]: {
-            ...fillContainer, 
+            ...fillContainer,
             gap: "12px"
         },
-    }, 
+    },
     columnGap12: {
-        ...column, 
-        gap: "12px", 
+        ...column,
+        gap: "12px",
         [theme.breakpoints.down("sm")]: {
             gap: "8px"
         },
-    }, 
+    },
     rowGap40: {
         ...rowGap40
-    }, 
+    },
     rowCenter: {
-        ...rowGap40, 
-        alignItems: "center", 
+        ...rowGap40,
+        alignItems: "center",
         [theme.breakpoints.down("sm")]: {
-            flexDirection: "column", 
-            gap: "12px", 
+            flexDirection: "column",
+            gap: "12px",
             ...fillContainer
         },
-    }, 
+    },
     rowGap12: {
-        ...displayFlex, 
-        gap: "12px", 
+        ...displayFlex,
+        gap: "12px",
         [theme.breakpoints.down("sm")]: {
             gap: "4px"
         },
-    }, 
+    },
     link: {
-        color: neutralColors[5], 
+        color: neutralColors[5],
         fontWeight: 400
     }
-}); 
+});
 
 export default footerStyle; 
