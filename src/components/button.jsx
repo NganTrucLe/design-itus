@@ -10,16 +10,20 @@ function RegularButton(props) {
     const classes = useStyle();
     const {
         children,
+        endIcon,
+        href
     } = props;
     return (
         <div>
-            <Button variant="contained" className={classes.button}>{children}</Button>
+            <Button href={props.href} endIcon={props.endIcon} className={classes.button}>{children}</Button>
         </div>
     );
 };
 
 RegularButton.propsType = {
     children: PropTypes.node,
+    endIcon: PropTypes.node,
+    href: PropTypes.string,
 };
 
 export default RegularButton;
