@@ -7,7 +7,7 @@ export default function HomePage() {
         <div style={{display: "flex"}}>
             <NavBar current = "/"/>
             <Footer />
-            <Button href="/about-us" endIcon={<NextArrowIcon/>}>Tìm hiểu thêm</Button>
+            {/* <Button href="/about-us" endIcon={<NextArrowIcon/>}>Tìm hiểu thêm</Button> */}
         </div>
     )
 }
