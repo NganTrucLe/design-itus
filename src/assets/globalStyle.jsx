@@ -38,7 +38,7 @@ const hexToRgb = input => {
 const section = {
     paddingRight: "120px",
     paddingLeft: "120px",
-    "@media (min-width: 600px)": {
+    "@media (max-width: 600px)": {
         paddingRight: "16px",
         paddingLeft: "16px",
     }

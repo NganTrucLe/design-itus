@@ -9,11 +9,11 @@ const navBarStyle = {
     backdropFilter: "blur(5px)",
 };
 const cardStyle = {
-    background: "rgba(255, 255, 255, 0.4)",
-    border: "2px solid #FFFFFF",
+    background: "rgba(255, 255, 255, 0.4) !important",
+    border: "2px solid #FFFFFF !important",
     /* BG blur */
 
-    backdropFilter: "blur(12.5px)",
+    backdropFilter: "blur(12.5px) !important",
     /* Note: backdrop-filter has minimal browser support */
     borderRadius: "12px",
 };
