@@ -16,6 +16,11 @@ const cardStyle = {
     backdropFilter: "blur(12.5px) !important",
     /* Note: backdrop-filter has minimal browser support */
     borderRadius: "12px",
+    padding: "20px",
+    "@media (max-width: 960px)": {
+        padding: "12px"
+    }
+
 };
 export {
     navBarStyle,
