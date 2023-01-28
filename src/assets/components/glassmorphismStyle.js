@@ -19,7 +19,7 @@ const cardStyle = {
     border: "2px solid #FFFFFF !important",
     /* BG blur */
 
-    backdropFilter: "blur(12.5px) !important",
+    backdropFilter: "blur(5px) !important",
     /* Note: backdrop-filter has minimal browser support */
     borderRadius: "12px",
     padding: "20px",

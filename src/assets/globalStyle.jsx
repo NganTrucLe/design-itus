@@ -86,6 +86,9 @@ const primaryColor = primaryColors[4];
 
 const emphasisColor = primaryColor;
 const whiteColor = '#fff';
+const pastelPinkColor = '#F1BFDD';
+const pastelBlueColor = '#B6DBF2';
+const pastelVioletColor = primaryColor;
 export {
     section,
     defaultFont,
@@ -93,5 +96,8 @@ export {
     neutralColors,
     primaryColor,
     emphasisColor,
-    whiteColor
+    whiteColor,
+    pastelPinkColor,
+    pastelBlueColor,
+    pastelVioletColor
 };
