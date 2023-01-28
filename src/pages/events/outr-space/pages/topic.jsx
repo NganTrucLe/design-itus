@@ -16,9 +16,7 @@ const useStyles = makeStyles(theme=> ({
     },
     card: {
         ...cardStyle,
-        padding: "20px",
         [theme.breakpoints.down("sm")]: {
-            padding: "8px 16px",
             width: "auto"
         }   
     },
