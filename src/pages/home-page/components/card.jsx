@@ -10,9 +10,15 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px 32px"
     }, 
     header: {
+        fontSize: "16px", 
+        fontWeight: 600,
+        lineHeight: "23.38px", 
         [theme.breakpoints.up("sm")]: {
+            fontSize: "20px", 
+            lineHeight: "30px"
+        },
+        [theme.breakpoints.up("md")]: {
             fontSize: "28px", 
-            fontWeight: 600, 
             lineHeight: "41px"
         },
     }

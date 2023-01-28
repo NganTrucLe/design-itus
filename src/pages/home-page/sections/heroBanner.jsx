@@ -12,23 +12,25 @@ const whiteText = {
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        ...section, 
         display: "flex", 
+        justifyContent: "space-between", 
         flexDirection: "column", 
+        gap: "0 !important", 
         [theme.breakpoints.up("md")]: {
             flexDirection: "row"
         },
     }, 
     text: {
-        ...section,
         gap: "0 !important",
         textAlignLast: "center",
-        paddingRight: "0 !important", 
         [theme.breakpoints.up("md")]: {
             ...whiteText,
             position: "relative",
             marginTop: "-270px",
             marginBottom: "170px",
             textAlignLast: "left", 
+            paddingRight: "0 !important"
         },
         [theme.breakpoints.up("lg")]: {
             paddingRight: "120px !important"
@@ -39,6 +41,14 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "20px",
         lineHeight: "30px",
         [theme.breakpoints.up("md")]: {
+            fontSize: "25px",
+            lineHeight: "37.5px",
+        },
+        [theme.breakpoints.up("md")]: {
+            fontSize: "31.25px",
+            lineHeight: "46.875px",
+        },
+        [theme.breakpoints.up("lg")]: {
             fontSize: "48px",
             lineHeight: "80px",
         },
