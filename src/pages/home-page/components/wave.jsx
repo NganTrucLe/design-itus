@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.up("md")]: {
             marginTop: "-210px",
-            marginBottom: "280px"
+            marginBottom: "320px"
         },
     },
     wave: {

@@ -4,6 +4,7 @@ import Button from "/src/components/button.jsx";
 import NextArrowIcon from "/src/assets/icons/nextArrowIcon";
 import Partners from "./sections/partners";
 import HeroBanner from "./sections/heroBanner";
+import Quote from "./sections/quote";
 
 const headerStyle = {
     fontWeight: 600, 
@@ -19,6 +20,7 @@ export default function HomePage() {
         <div style={{display: "flex", flexDirection: "column"}}>
             <NavBar current = "/" />
             <HeroBanner />
+            <Quote />
             <Partners />
             <Footer />
             {/* <Button href="/about-us" endIcon={<NextArrowIcon/>}>Tìm hiểu thêm</Button> */}

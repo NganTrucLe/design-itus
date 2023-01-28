@@ -30,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
             marginTop: "-270px",
             marginBottom: "170px",
             textAlignLast: "left", 
-            paddingRight: "0 !important"
+            paddingRight: "20px !important"
         },
         [theme.breakpoints.up("lg")]: {
-            paddingRight: "120px !important"
+            paddingRight: "0 !important"
         },
     },
     title: {
