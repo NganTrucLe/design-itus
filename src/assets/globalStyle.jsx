@@ -38,9 +38,18 @@ const hexToRgb = input => {
 const section = {
     paddingRight: "120px",
     paddingLeft: "120px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0px",
     "@media (max-width: 600px)": {
         paddingRight: "16px",
         paddingLeft: "16px",
+        gap: "60px",
+    },
+    "@media (max-width: 960px)": {
+        paddingRight: "40px",
+        paddingLeft: "40px",
+        gap: "60px",
     }
 }
 
