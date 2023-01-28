@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme=> ({
     sectionStyle: {
-        height: "600px",
+        minHeight: "600px",
         marginTop: "72px",
         alignItems: "center",
         [theme.breakpoints.down("sm")]: {

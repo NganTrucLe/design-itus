@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import Round1Requires from "../sections/round1Requires";
 import NavBar from "../components/navBar";
 import Tab from "../components/simpleTabs";
+import HowToSend from "../sections/howToSend";
 import { section } from "/src/assets/globalStyle";
 
 const useStyles = makeStyles(theme => ({
@@ -15,7 +16,7 @@ export default function HowToJoin() {
         <div>
             <NavBar current = "/events/outr-space-7/how-to-join"/>
             <div className={classes.section}>
-                <Grid container spacing={4} justifyContent="space-between" style={{marginTop: "184px"}} >
+                <Grid container spacing={4} justifyContent="space-between" style={{marginTop: "118px", marginBottom: "28px"}} >
                     <Grid item xs={12} md={6}>
                         <Round1Requires/>
                     </Grid>
@@ -23,6 +24,7 @@ export default function HowToJoin() {
                         <Tab/>
                     </Grid>
                 </Grid>
+                <HowToSend/>
             </div>
         </div>
     )
