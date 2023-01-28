@@ -37,12 +37,6 @@ const useStyles = makeStyles(theme => ({
     },
     navBarContainer: {
         ...navBarStyle,
-        [theme.breakpoints.down("sm")]: {
-            padding: "8px 16px",
-        },
-        [theme.breakpoints.down("md")]: {
-            padding: "8px 40px",
-        },
     },
     logo: {
         height: "40px",
@@ -58,10 +52,6 @@ const useStyles = makeStyles(theme => ({
         ...tabItemStyle.default,
         "&:hover": {
             color: "#7B96E7",
-        },
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "13px",
-            marginLeft: 0
         },
     },
     itemsCurrent: {
