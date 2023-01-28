@@ -7,6 +7,12 @@ const navBarStyle = {
     flexDirection: "row",
     borderBottom: "2px solid white",
     backdropFilter: "blur(5px)",
+    "@media (max-width: 960px)": {
+        padding: "8px 40px"
+    },
+    "@media (max-width: 600px)": {
+        padding: "8px 16px"
+    },
 };
 const cardStyle = {
     background: "rgba(255, 255, 255, 0.4) !important",

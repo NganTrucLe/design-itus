@@ -7,7 +7,7 @@ const buttonStyle = theme => ({
         display: "inline-flex",
         justifyContent: "center",
         width: "auto",
-        padding: "12px 20px 12px 20px",
+        padding: "12px 20px",
         textTransform: "none",
         backgroundColor: primaryColor,
         color: whiteColor,
@@ -16,6 +16,7 @@ const buttonStyle = theme => ({
         transition: "box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
         "&:hover": {
             ...cardStyle,
+            padding: "12px 20px",
             borderRadius: "50px",
             boxShadow: "none",
             color: primaryColor + "!important",
