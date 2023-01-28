@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme=> ({
         flexDirection: "column",
         gap: "20px",
         [theme.breakpoints.down("sm")]: {
-            gap: "20px"
-        },
+            gap: "8px"
+        }
     },
     data: {
         gap: "80px",
