@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
         width: "100%"
     },
     slideshowDots: {
+        zIndex: 20, 
         display: "flex",
         justifyContent: "center",
         gap: "8px",
         position: "relative",
-        marginTop: "-100px",
-        marginBottom: "100px",
+        marginTop: "-110px",
+        marginBottom: "110px",
         [theme.breakpoints.down("sm")]: {
             marginTop: "-28px",
             marginBottom: "28px",
