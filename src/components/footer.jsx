@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { HashLink } from 'react-router-hash-link';
 
 //core
 import { Hidden, makeStyles } from "@material-ui/core"
@@ -97,9 +98,9 @@ export default function Footer() {
                                 {item.sections ?
                                     <>
                                         {item.sections.map((section) => (
-                                            <Link to={`${item.link}${section.link}`} className={classes.link}>
+                                            <HashLink to={`${item.link}${section.link}`} className={classes.link} smooth>
                                                 {section.text}
-                                            </Link>
+                                            </HashLink>
                                         ))}
                                     </>
                                     :

@@ -21,12 +21,10 @@ const fillContainer = {
 const footerStyle = theme => ({
     root: {
         ...defaultFont,
-        ...column,
         ...section,
-        gap: "36px",
+        gap: "36px !important",
         background: primaryColors[3],
         color: neutralColors[5],
-        width: "100%",
         paddingTop: "36px",
         paddingBottom: "36px",
         [theme.breakpoints.down("sm")]: {
@@ -114,7 +112,7 @@ const footerStyle = theme => ({
     },
     link: {
         color: neutralColors[5],
-        fontWeight: 400
+        fontWeight: 400, 
     }
 });
 

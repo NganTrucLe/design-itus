@@ -39,6 +39,12 @@ const useStyles = makeStyles(theme => ({
     },
     navBarContainer: {
         ...navBarStyle,
+        [theme.breakpoints.up("sm")]: {
+            padding: "8px 40px",
+        },
+        [theme.breakpoints.up("md")]: {
+            padding: "16px 120px",
+        },
     },
     logo: {
         height: "40px",
