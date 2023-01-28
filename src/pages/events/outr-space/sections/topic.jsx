@@ -19,10 +19,6 @@ const useStyles = makeStyles(theme=> ({
     list: {
         display: "flex",
         flexDirection: "column",
-        gap: "20px",
-        [theme.breakpoints.down("sm")]: {
-            gap: "8px"
-        },
     },
     linearTransparent: {
         background: "linear-gradient(180deg, #000000 37.87%, rgba(0, 0, 0, 0) 100%)",
