@@ -1,10 +1,9 @@
 import Footer from "../../components/footer";
-import NavBar from "../../components/navBar";
-import Button from "/src/components/button.jsx";
-import NextArrowIcon from "/src/assets/icons/nextArrowIcon";
+import NavBar from "../../components/navBar"; 
 import Partners from "./sections/partners";
 import HeroBanner from "./sections/heroBanner";
 import Quote from "./sections/quote";
+import WhoAreWe from "./sections/whoAreWe";
 
 const headerStyle = {
     fontWeight: 600, 
@@ -20,10 +19,10 @@ export default function HomePage() {
         <div style={{display: "flex", flexDirection: "column"}}>
             <NavBar current = "/" />
             <HeroBanner />
+            <WhoAreWe />
             <Quote />
             <Partners />
             <Footer />
-            {/* <Button href="/about-us" endIcon={<NextArrowIcon/>}>Tìm hiểu thêm</Button> */}
         </div>
     )
 }
