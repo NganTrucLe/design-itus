@@ -19,6 +19,18 @@ const useStyles = makeStyles(theme=> ({
     list: {
         display: "flex",
         flexDirection: "column",
+        gap: "20px",
+        [theme.breakpoints.down("sm")]: {
+            gap: "8px",
+        }
+    },
+    message: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        [theme.breakpoints.down("sm")]: {
+            gap: "8px",
+        }
     },
     linearTransparent: {
         background: "linear-gradient(180deg, #000000 37.87%, rgba(0, 0, 0, 0) 100%)",
@@ -51,13 +63,13 @@ function RenderMessages(short) {
     const classes = useStyles();
     if (short === true) return (
         <Grid item xs={12} md={5} className={[classes.list, classes.data].join(" ")} >
-            <div className={classes.list}>
+            <div className={classes.message}>
                 <h3>Truyền đạt thông tin</h3>
                 <p>
                 Sự phát triển của truyền thông càng nhanh thì độ tin cậy thông tin càng phức tạp, bên cạnh những nguồn thông tin xác thực, đúng sự thật thì vô số thông tin chạy theo thị hiếu, giật tít, câu view, làm sai lệch nhận thức người đọc vẫn được lưu hành.
                 </p>
             </div>
-            <div className={classes.list}>
+            <div className={classes.message}>
                 <h3>Tâm lý con người</h3>
                 <p>
                 Với sự phát triển không ngừng của internet, thông tin trên các trang mạng xã hội ngày càng được lan rộng, thiếu sự kiểm soát mạnh mẽ. Những lỗ hổng trong công tác quản lý và xác thực đã dẫn đến thông tin bị lợi dụng, biến đổi sai lệch, phát tán rộng rãi với mục đích lôi kéo dụ dỗ dư luận hay còn gọi là “thao túng tâm lý”.
