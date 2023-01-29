@@ -71,7 +71,7 @@ export default function Partners() {
     ]
 
     return (
-        <div className={classes.root} id="partners">
+        <section className={classes.root} id="partners">
             <div className={classes.headerStyle}>
                 Đối tác
             </div>
@@ -80,6 +80,6 @@ export default function Partners() {
                     <img src={partner.src} alt={partner.text} className={classes.logo} />
                 ))}
             </InfiniteLooper>
-        </div>
+        </section>
     )
 }

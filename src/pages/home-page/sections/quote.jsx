@@ -37,7 +37,7 @@ export default function Quote() {
     const classes = useStyles()
 
     return (
-        <div className={classes.root}>
+        <section className={classes.root}>
             <div className={classes.card}>
                 <div className={classes.quote}>
                     “Người trí thức nói điều đơn giản theo cách phức tạp.
@@ -48,6 +48,6 @@ export default function Quote() {
                     Charles Bukowski
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

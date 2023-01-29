@@ -102,7 +102,6 @@ export default function HeroBanner() {
                 </div>
             </div>
             <Wave />
-
         </>
     )
 }
