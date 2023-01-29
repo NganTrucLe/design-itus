@@ -3,7 +3,6 @@ import Topic from "./sections/topic.jsx";
 import Problem from "./sections/problem.jsx";
 import Participants from "./sections/participants.jsx";
 import HowToJoin from "./sections/howToJoin.jsx";
-import Footer from "/src/components/footer.jsx";
 import Blob from '/src/assets/decor/blob';
 import { makeStyles } from "@material-ui/core";
 import { section } from "/src/assets/globalStyle";
@@ -34,7 +33,6 @@ export default function OutrSpace7() {
             <section className={classes.sectionStyle}>
                 <HowToJoin/>
             </section>
-            <Footer/>
         </div>
     )
 }
