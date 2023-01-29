@@ -1,5 +1,5 @@
 const navBarStyle = {
-    padding: "16px 120px",
+    padding: "8px 16px",
     background: "rgba(255, 255, 255, 0.2)",
     display: "flex",
     justifyContent: "space-between",
