@@ -9,14 +9,8 @@ import { makeStyles } from "@material-ui/core";
 import { section } from "/src/assets/globalStyle";
 
 const useStyles = makeStyles(theme=> ({
-    contentStyle: {
-        ...section,
-    },
     sectionStyle: {
         ...section,
-        position: "relative",
-        overflowX: "clip",
-        overflowY: "visible"
     }
 }));
 export default function OutrSpace7() {
@@ -26,13 +20,16 @@ export default function OutrSpace7() {
             <NavBar current="/events/outr-space-7"/>
             <section className={classes.sectionStyle}>
                 <Topic short/>
+                <Blob style={{top: "-100px", left: Math.floor(window.innerWidth/2 - 200).toString() + "px", width: "300px"}} type="bluepink"/>
             </section>
             <section className={classes.sectionStyle}>
                 <Problem/>
-                <Blob topPos="200px" leftPos="0px"/>
+                <Blob style={{width:"300px", right: "-150px"}} type="bluepink"/>
             </section>
             <section className={classes.sectionStyle}>
                 <Participants/>
+                <Blob style={{width:"200px", left: "150px"}} type="blueviolet"/>
+                <Blob style={{width:"250px", right: "100px", bottom: "-10px"}} type="blueviolet"/>
             </section>
             <section className={classes.sectionStyle}>
                 <HowToJoin/>

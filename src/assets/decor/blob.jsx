@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { pastelPinkColor, pastelBlueColor, pastelVioletColor } from '../globalStyle';
+import { pastelPinkColor, pastelBlueColor, pastelVioletColor, hexToRgb } from '../globalStyle';
+import { SvgIcon } from '@material-ui/core';
+
 
 const colors = [pastelBlueColor, pastelPinkColor, pastelVioletColor];
 const randomPath = [
@@ -23,44 +25,107 @@ function generatePath() {
     res.push(res[0]);
     return res.join(" ");
 }
-function parsePosition(top="0px", right="0px", left="0px", bottom="0px") {
-    return {
-        top: top,
-        left: left,
-    }
+// function parsePosition(top=0, left=0) {
+//     var style = new Map();
+//     if (top<0) {
+//         top=0-top;
+//         style.set(bottom,top.toString() + "px")
+//     }
+//     else {
+//         style.set('top',top.toString() + "px")
+//     }
+//     if (left<0) {
+//         left=0-left;
+//         style.set('right',left.toString() + "px")
+//     }
+//     else {
+//         style.set('left',left.toString() + "px")
+//     }
+//     console.log(style);
+//     return style;
+// }
+function parseColor(color){
+    return hexToRgb(color=="pink"?pastelPinkColor:(color=="blue"?pastelBlueColor:pastelVioletColor));
 }
 const useStyles = makeStyles(theme => ({
     position: {
         position: "absolute",
-        zIndex: "-1000",      
+        zIndex: "-1000",
+        height: "auto",
+        width: "100px"
     }
 }));
 
+function BluePink() {
+    return (
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+            <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
+                <stop offset="100%" style={{"stop-color": parseColor("pink")}}></stop>
+            </linearGradient>
+            </defs>
+            <path id="blob" fill="url(#gradient1)">
+                <animate attributeName="d" dur="20s" repeatCount="indefinite"
+                values={generatePath()}
+                >
+                </animate>
+            </path>
+        </svg>
+    );
+}
+
+function BlueViolet() {
+    return (
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+            <defs>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
+                <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
+            </linearGradient>
+            </defs>
+            <path id="blob" fill="url(#gradient2)">
+                <animate attributeName="d" dur="20s" repeatCount="indefinite"
+                values={generatePath()}
+                >
+                </animate>
+            </path>
+        </svg>
+    );
+}
+
+function PinkViolet() {
+    return (
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+            <defs>
+            <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{"stop-color": parseColor("pink")}}></stop>
+                <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
+            </linearGradient>
+            </defs>
+            <path id="blob" fill="url(#gradient3)">
+                <animate attributeName="d" dur="20s" repeatCount="indefinite"
+                values={generatePath()}
+                >
+                </animate>
+            </path>
+        </svg>
+    );
+}
 function blob(props) {
     
     const classes = useStyles();
-    const { topPos, leftPos} = props;
+    const { type, ...other } = props;
     return (
-        <div {...props} style={parsePosition(topPos, leftPos)}className={classes.position}>
-            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
-                <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style={{"stop-color": "rgb(149, 171, 236)"}}></stop>
-                    <stop offset="100%" style={{"stop-color": "rgb(182, 219, 242)"}}></stop>
-                </linearGradient>
-                </defs>
-                <path id="blob" fill="url(#gradient)">
-                    <animate attributeName="d" dur="20s" repeatCount="indefinite"
-                    values={generatePath()}
-                    >
-                    </animate>
-                </path>
-            </svg>
-        </div>
+        <SvgIcon {...other} className={classes.position}>
+            {type=="bluepink"?<BluePink/>:(type=="blueviolet"?<BlueViolet/>:<PinkViolet/>)}
+        </SvgIcon>
   );
 }
 blob.propTypes = {
-    topPos: PropTypes.string.isRequired,
-    leftPos: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(["bluepink","blueviolet","pinkviolet"])
 };
 export default blob;

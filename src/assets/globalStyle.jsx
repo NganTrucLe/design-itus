@@ -22,12 +22,12 @@ const hexToRgb = input => {
     let first = input[0] + input[1];
     let second = input[2] + input[3];
     let last = input[4] + input[5];
-    return (
+    return ("rgb("+
         parseInt(first, 16) +
         ", " +
         parseInt(second, 16) +
         ", " +
-        parseInt(last, 16)
+        parseInt(last, 16)+")"
     );
 };
 
@@ -41,6 +41,9 @@ const section = {
     display: "flex",
     flexDirection: "column",
     gap: "60px",
+    position: "relative",
+    overflowX: "clip",
+    overflowY: "visible",
     "@media (min-width: 600px)": {
         paddingRight: "40px",
         paddingLeft: "40px",
@@ -90,6 +93,7 @@ const pastelPinkColor = '#F1BFDD';
 const pastelBlueColor = '#B6DBF2';
 const pastelVioletColor = primaryColor;
 export {
+    hexToRgb,
     section,
     defaultFont,
     primaryColors,
