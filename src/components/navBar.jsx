@@ -100,6 +100,17 @@ const useStyles = makeStyles(theme => ({
         textDecoration: "none",
         color: whiteColor,
         display: 'flex'
+    },
+    menu: {
+        display: "none"
+    },
+    menuHover: {
+        display: "flex",
+        position: "absolute",
+        marginLeft: "40px",
+        boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.2)",
+        padding: "8px 4px",
+        background: "white" 
     }
 }));
 
@@ -117,16 +128,14 @@ export default function NavBar(props) {
         setOpen(false);
     };
 
-    // Handle menu
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const openMenu = Boolean(anchorEl);
+    const [hover, setHover] = React.useState(false);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleHoverOpen = () => {
+        setHover(true);
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleHoverClose = () => {
+        setHover(false);
     };
 
     return (
@@ -143,35 +152,52 @@ export default function NavBar(props) {
                             <div>
                                 {item.link === props.current ?
                                     (item.child ?
-                                        <>
-                                            <Link className={classes.itemsCurrent} onClick={handleClick}>
+                                        <div onMouseLeave={handleHoverClose}>
+                                            <Link to={item.link} className={classes.itemsCurrent} onMouseEnter={handleHoverOpen}>
                                                 {item.text}
                                             </Link>
-                                            <Menu
-                                                id="fade-menu"
-                                                anchorEl={anchorEl}
-                                                keepMounted
-                                                open={openMenu}
-                                                onClose={handleClose}
-                                                TransitionComponent={Fade}
-                                                style={{ ...defaultFont, zIndex: 10000, top: "2em" }}
-                                            >
+                                            {hover ? <div className={classes.menuHover}>
                                                 {item.child.map((child) => (
                                                     <Link to={`${item.link}${child.link}`}>
-                                                        <MenuItem style={{ ...defaultFont }} onClick={handleClose}>{child.text}</MenuItem>
+                                                        <MenuItem style={{ ...defaultFont }}>{child.text}</MenuItem>
                                                     </Link>
                                                 ))}
-                                            </Menu>
-                                        </>
+                                            </div> : <div className={classes.menu}>
+                                                {item.child.map((child) => (
+                                                    <Link to={`${item.link}${child.link}`}>
+                                                        <MenuItem style={{ ...defaultFont }}>{child.text}</MenuItem>
+                                                    </Link>
+                                                ))}
+                                            </div>}
+                                        </div>
                                         :
                                         <Link to={item.link} className={classes.itemsCurrent}>
                                             {item.text}
                                         </Link>
                                     )
-                                    :
-                                    <Link to={item.link} className={classes.items}>
-                                        {item.text}
-                                    </Link>
+                                    : (item.child ?
+                                        <div onMouseLeave={handleHoverClose}>
+                                            <Link to={item.link} className={classes.items} onMouseEnter={handleHoverOpen}>
+                                                {item.text}
+                                            </Link>
+                                            {hover ? <div className={classes.menuHover}>
+                                                {item.child.map((child) => (
+                                                    <Link to={`${item.link}${child.link}`}>
+                                                        <MenuItem style={{ ...defaultFont }}>{child.text}</MenuItem>
+                                                    </Link>
+                                                ))}
+                                            </div> : <div className={classes.menu}>
+                                                {item.child.map((child) => (
+                                                    <Link to={`${item.link}${child.link}`}>
+                                                        <MenuItem style={{ ...defaultFont }}>{child.text}</MenuItem>
+                                                    </Link>
+                                                ))}
+                                            </div>}
+                                        </div>
+                                        :
+                                        <Link to={item.link} className={classes.items}>
+                                            {item.text}
+                                        </Link>)
                                 }
                             </div>
                         ))}

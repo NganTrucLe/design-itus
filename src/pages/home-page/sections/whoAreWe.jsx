@@ -71,7 +71,7 @@ export default function WhoAreWe() {
     const classes = useStyles()
 
     return (
-        <div className={classes.root} id="who-are-we">
+        <section className={classes.root} id="who-are-we">
             <div className={classes.left}>
                 <div className={classes.headerStyle}>Chúng tôi là ai?</div>
                 <div> Design ITUS được thành lập vào ngày 25 tháng 10 năm 2010, là câu lạc bộ học thuật đầu tiên của khoa Công nghệ thông tin, trường ĐH Khoa học tự nhiên, ĐHQG TPHCM.
@@ -83,6 +83,6 @@ export default function WhoAreWe() {
                 <div className={classes.textRight}>DESIGN ITUS <br />
                     Câu lạc bộ học thuật thiết kế</div>
             </div>
-        </div>
+        </section>
     )
 }

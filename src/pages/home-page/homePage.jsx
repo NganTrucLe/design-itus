@@ -1,4 +1,3 @@
-import Footer from "../../components/footer";
 import NavBar from "../../components/navBar"; 
 import Partners from "./sections/partners";
 import HeroBanner from "./sections/heroBanner";
@@ -22,7 +21,6 @@ export default function HomePage() {
             <WhoAreWe />
             <Quote />
             <Partners />
-            <Footer />
         </div>
     )
 }
