@@ -75,7 +75,7 @@ export default function Partners() {
             <div className={classes.headerStyle}>
                 Đối tác
             </div>
-            <InfiniteLooper speed="6" direction="left">
+            <InfiniteLooper speed="8" direction="left">
                 {partners.map((partner) => (
                     <img src={partner.src} alt={partner.text} className={classes.logo} />
                 ))}
