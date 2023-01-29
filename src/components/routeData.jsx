@@ -12,7 +12,7 @@ const navItems = [
                 link: "#who-are-we"
             },
             {
-                text: "Hoạt dộng",
+                text: "Hoạt động",
                 link: "#our-works"
             },
             {

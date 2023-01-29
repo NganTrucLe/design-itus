@@ -54,7 +54,7 @@ export default function Footer() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <footer className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.rowCenter}>
                     <div className={classes.container}>
@@ -128,6 +128,6 @@ export default function Footer() {
                     <Socials />
                 </Hidden>
             </div>
-        </div>
+        </footer>
     )
 }
