@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { pastelPinkColor, pastelBlueColor, pastelVioletColor, hexToRgb } from '../globalStyle';
 import { SvgIcon } from '@material-ui/core';
-
+import './animate.css';
 
 const colors = [pastelBlueColor, pastelPinkColor, pastelVioletColor];
 const randomPath = [
@@ -25,25 +25,11 @@ function generatePath() {
     res.push(res[0]);
     return res.join(" ");
 }
-// function parsePosition(top=0, left=0) {
-//     var style = new Map();
-//     if (top<0) {
-//         top=0-top;
-//         style.set(bottom,top.toString() + "px")
-//     }
-//     else {
-//         style.set('top',top.toString() + "px")
-//     }
-//     if (left<0) {
-//         left=0-left;
-//         style.set('right',left.toString() + "px")
-//     }
-//     else {
-//         style.set('left',left.toString() + "px")
-//     }
-//     console.log(style);
-//     return style;
-// }
+function generateRotation() {
+    var res = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+    console.log(res);
+    return res;
+}
 function parseColor(color){
     return hexToRgb(color=="pink"?pastelPinkColor:(color=="blue"?pastelBlueColor:pastelVioletColor));
 }
@@ -52,18 +38,26 @@ const useStyles = makeStyles(theme => ({
         position: "absolute",
         zIndex: "-1000",
         height: "auto",
-        width: "100px"
-    }
+        width: "100px",
+    },
 }));
 
 function BluePink() {
     return (
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
-        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="gradient1">
                 <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
                 <stop offset="100%" style={{"stop-color": parseColor("pink")}}></stop>
+                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
+                    values="0%;100%;100%;0%;0%"/>
+                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
+                    values="0%;0%;100%;100%;0%"/>
+                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
+                    values="100%;0%;0%;100%;100%"/>    
+                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
+                    values="100%;100%;0%;100%;100%"/>      
             </linearGradient>
             </defs>
             <path id="blob" fill="url(#gradient1)">
@@ -79,12 +73,24 @@ function BluePink() {
 function BlueViolet() {
     return (
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
-        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
+            <linearGradient id="gradient2">
+                <stop offset="0%" style={{"stop-color": parseColor("blue")}}>
+                    
+                </stop>
+                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
+                    values="0%;100%;100%;0%;0%"/>
+                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
+                    values="0%;0%;100%;100%;0%"/>
+                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
+                    values="100%;0%;0%;100%;100%"/>    
+                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
+                    values="100%;100%;0%;100%;100%"/> 
                 <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
             </linearGradient>
+            
+            <img src="src/assets/images/edited.jpb" id="gradient"/>
             </defs>
             <path id="blob" fill="url(#gradient2)">
                 <animate attributeName="d" dur="20s" repeatCount="indefinite"
@@ -99,12 +105,21 @@ function BlueViolet() {
 function PinkViolet() {
     return (
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
-        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+        xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="gradient4">
                 <stop offset="0%" style={{"stop-color": parseColor("pink")}}></stop>
                 <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
+                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
+                    values="0%;100%;100%;0%;0%"/>
+                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
+                    values="0%;0%;100%;100%;0%"/>
+                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
+                    values="100%;0%;0%;100%;100%"/>    
+                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
+                    values="100%;100%;0%;100%;100%"/> 
             </linearGradient>
+            <img src="src/assets/images/edited.jpb" id="gradient3"/>
             </defs>
             <path id="blob" fill="url(#gradient3)">
                 <animate attributeName="d" dur="20s" repeatCount="indefinite"
@@ -120,8 +135,10 @@ function blob(props) {
     const classes = useStyles();
     const { type, ...other } = props;
     return (
-        <SvgIcon {...other} className={classes.position}>
-            {type=="bluepink"?<BluePink/>:(type=="blueviolet"?<BlueViolet/>:<PinkViolet/>)}
+        <SvgIcon {...other} className={[classes.position, "floating-blob"].join(" ")} >
+            {type=="bluepink"?<BluePink/>:
+            (type=="blueviolet"?<BlueViolet/>:
+            <PinkViolet/>)}
         </SvgIcon>
   );
 }
@@ -129,3 +146,4 @@ blob.propTypes = {
     type: PropTypes.oneOf(["bluepink","blueviolet","pinkviolet"])
 };
 export default blob;
+
