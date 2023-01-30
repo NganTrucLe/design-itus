@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import { pastelPinkColor, pastelBlueColor, pastelVioletColor, hexToRgb } from '../globalStyle';
 import { SvgIcon } from '@material-ui/core';
 import './animate.css';
 
-const colors = [pastelBlueColor, pastelPinkColor, pastelVioletColor];
 const randomPath = [
     "M450.5,327.5Q405,405,327.5,436.5Q250,468,195,414Q140,360,113.5,305Q87,250,106,187.5Q125,125,187.5,89Q250,53,318.5,83Q387,113,441.5,181.5Q496,250,450.5,327.5Z;",
     "M425,331.5Q413,413,331.5,431Q250,449,181.5,418Q113,387,99.5,318.5Q86,250,84.5,166.5Q83,83,166.5,65.5Q250,48,305,94Q360,140,398.5,195Q437,250,425,331.5Z;",
@@ -25,11 +24,6 @@ function generatePath() {
     res.push(res[0]);
     return res.join(" ");
 }
-function generateRotation() {
-    var res = `rotate(${Math.floor(Math.random() * 360)}deg)`;
-    console.log(res);
-    return res;
-}
 function parseColor(color){
     return hexToRgb(color=="pink"?pastelPinkColor:(color=="blue"?pastelBlueColor:pastelVioletColor));
 }
@@ -38,8 +32,25 @@ const useStyles = makeStyles(theme => ({
         position: "absolute",
         zIndex: "-1000",
         height: "auto",
-        width: "100px",
     },
+    small: {
+        width: "200px",
+        [theme.breakpoints.down("xs")]: {
+            width: "50px",
+        }
+    },
+    medium: {
+        width: "300px",
+        [theme.breakpoints.down("xs")]: {
+            width: "150px",
+        }
+    },
+    large: {
+        width: "400px",
+        [theme.breakpoints.down("xs")]: {
+            width: "130px",
+        }
+    }
 }));
 
 function BluePink() {
@@ -47,18 +58,14 @@ function BluePink() {
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
         xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient1">
-                <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
-                <stop offset="100%" style={{"stop-color": parseColor("pink")}}></stop>
-                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
-                    values="0%;100%;100%;0%;0%"/>
-                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
-                    values="0%;0%;100%;100%;0%"/>
-                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
-                    values="100%;0%;0%;100%;100%"/>    
-                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
-                    values="100%;100%;0%;100%;100%"/>      
-            </linearGradient>
+            <radialGradient id="gradient1" cx="50%" cy="50%" r="80%">
+                    <animate attributeName="fx" dur="20s" repeatCount="indefinite"
+                        values="20%;80%;80%;20%;20%"/>
+                    <animate attributeName="fy" dur="20s" repeatCount="indefinite"
+                    values="20%;20%;80%;80%;20%"/>
+                    <stop offset="0%" style={{"stop-color": parseColor("pink")}}></stop>
+                    <stop offset="80%" style={{"stop-color": parseColor("blue")}}></stop>
+                </radialGradient>
             </defs>
             <path id="blob" fill="url(#gradient1)">
                 <animate attributeName="d" dur="20s" repeatCount="indefinite"
@@ -75,22 +82,14 @@ function BlueViolet() {
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
         xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient2">
-                <stop offset="0%" style={{"stop-color": parseColor("blue")}}>
-                    
-                </stop>
-                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
-                    values="0%;100%;100%;0%;0%"/>
-                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
-                    values="0%;0%;100%;100%;0%"/>
-                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
-                    values="100%;0%;0%;100%;100%"/>    
-                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
-                    values="100%;100%;0%;100%;100%"/> 
-                <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
-            </linearGradient>
-            
-            <img src="src/assets/images/edited.jpb" id="gradient"/>
+                <radialGradient id="gradient2" cx="50%" cy="50%" r="80%">
+                    <animate attributeName="fx" dur="20s" repeatCount="indefinite"
+                        values="20%;80%;80%;20%;20%"/>
+                    <animate attributeName="fy" dur="20s" repeatCount="indefinite"
+                    values="20%;20%;80%;80%;20%"/>
+                    <stop offset="0%" style={{"stop-color": parseColor("blue")}}></stop>
+                    <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
+                </radialGradient>            
             </defs>
             <path id="blob" fill="url(#gradient2)">
                 <animate attributeName="d" dur="20s" repeatCount="indefinite"
@@ -107,18 +106,14 @@ function PinkViolet() {
         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
         xmlns:xlink="http://www.w3.org/1999/xlink" width="100%">
             <defs>
-            <linearGradient id="gradient4">
-                <stop offset="0%" style={{"stop-color": parseColor("pink")}}></stop>
-                <stop offset="100%" style={{"stop-color": parseColor("violet")}}></stop>
-                <animate attributeName="x1" dur="10s" repeatCount="indefinite"
-                    values="0%;100%;100%;0%;0%"/>
-                <animate attributeName="y1" dur="10s" repeatCount="indefinite"
-                    values="0%;0%;100%;100%;0%"/>
-                <animate attributeName="x2" dur="10s" repeatCount="indefinite"
-                    values="100%;0%;0%;100%;100%"/>    
-                <animate attributeName="y2" dur="10s" repeatCount="indefinite"
-                    values="100%;100%;0%;100%;100%"/> 
-            </linearGradient>
+            <radialGradient id="gradient3" cx="50%" cy="50%" r="100%">
+                    <animate attributeName="fx" dur="20s" repeatCount="indefinite"
+                        values="20%;80%;80%;20%;20%"/>
+                    <animate attributeName="fy" dur="20s" repeatCount="indefinite"
+                    values="20%;20%;80%;80%;20%"/>
+                    <stop offset="0%" style={{"stop-color": parseColor("pink")}}></stop>
+                    <stop offset="180%" style={{"stop-color": parseColor("violet")}}></stop>
+                </radialGradient>
             <img src="src/assets/images/edited.jpb" id="gradient3"/>
             </defs>
             <path id="blob" fill="url(#gradient3)">
@@ -131,11 +126,10 @@ function PinkViolet() {
     );
 }
 function blob(props) {
-    
     const classes = useStyles();
-    const { type, ...other } = props;
+    const { type, size, ...other } = props;
     return (
-        <SvgIcon {...other} className={[classes.position, "floating-blob"].join(" ")} >
+        <SvgIcon {...other} className={[classes.position, "floating-blob", props.size=="large"?classes.large:(props.size=="medium"?classes.medium:classes.small)].join(" ")} >
             {type=="bluepink"?<BluePink/>:
             (type=="blueviolet"?<BlueViolet/>:
             <PinkViolet/>)}
@@ -143,7 +137,7 @@ function blob(props) {
   );
 }
 blob.propTypes = {
-    type: PropTypes.oneOf(["bluepink","blueviolet","pinkviolet"])
+    type: PropTypes.oneOf(["bluepink","blueviolet","pinkviolet"]),
+    size: PropTypes.oneOf(["small", "medium", "large"])
 };
 export default blob;
-

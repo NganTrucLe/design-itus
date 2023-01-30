@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import BigNumberList from "../components/bigNumberList";
 const useStyles = makeStyles(theme=> ({
     sectionStyle: {
-        minHeight: "600px",
+        minHeight: "500px",
         alignItems: "center",
         marginBottom: "50px",
         [theme.breakpoints.down("sm")]: {

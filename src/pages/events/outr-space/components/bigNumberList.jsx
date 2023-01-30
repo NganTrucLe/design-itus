@@ -4,13 +4,13 @@ import { primaryColors } from "/src/assets/globalStyle";
 
 const useStyles = makeStyles(theme => ({
     number: {
-        fontSize: "140px",
-        lineHeight: "196px",
+        fontSize: "80px",
+        lineHeight: "120px",
         color: primaryColors[0],
         fontWeight: "800",
         [theme.breakpoints.down("sm")]: {
-            fontSize: "60px",
-            lineHeight: "87.66px",
+            fontSize: "40px",
+            lineHeight: "60px",
         }
     },
     reverseContainer: {
@@ -19,25 +19,25 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
     },
     contentStyle: {
-        marginTop: "100px",
+        marginTop: "60px",
         marginLeft: "-54px",
         marginBottom: "8px",
         zIndex: 1000,
         position: "relative",
         [theme.breakpoints.down("sm")]: {
             marginLeft: "-28px",
-            marginTop: "44px",
+            marginTop: "30px",
         }
     },
     reverseContentStyle: {
-        marginTop: "100px",
+        marginTop: "60px",
         marginRight: "-54px",
         marginBottom: "8px",
         zIndex: 1000,
         position: "relative",
         [theme.breakpoints.down("sm")]: {
             marginRight: "-28px",
-            marginTop: "44px",
+            marginTop: "30px",
         }
     },
     container: {

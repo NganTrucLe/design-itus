@@ -13,12 +13,12 @@
 @keyframes rotate {
     from {
         transform: rotate(0deg)
-        translate(-2em)
+        translate(-1em)
         rotate(0deg);
     }
     to {
         transform: rotate(360deg)
-        translate(-2em)
+        translate(-1em)
         rotate(-360deg);
     }
 }

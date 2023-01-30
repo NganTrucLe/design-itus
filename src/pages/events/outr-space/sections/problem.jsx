@@ -23,8 +23,8 @@ const useStyles = makeStyles(theme=> ({
         },
     },
     title: {
-        fontSize: "48px",
-        lineHeight: "80px",
+        fontSize: "40px",
+        lineHeight: "60px",
         [theme.breakpoints.down("sm")]: {
             fontSize: "20px",
             lineHeight: "30px",
